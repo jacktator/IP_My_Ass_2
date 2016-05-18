@@ -1,0 +1,24 @@
+{
+  "name": "kardy_portfolio",
+  "version": "1.0.0",
+  "description": "This is the website for Kardy",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SK8-PTY-LTD/Kardy.git"
+  },
+  "author": "Kardy Li",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/SK8-PTY-LTD/Kardy/issues"
+  },
+  "homepage": "https://github.com/SK8-PTY-LTD/Kardy#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {}
+}

@@ -16,50 +16,50 @@ angular.module('app', ['ui.bootstrap', 'ui.tree'])
         /**
          * Ajax loading scripts
          */
-        //function loadXMLFile(url, callback) {
-        //    var xhr;
-        //
-        //    if(typeof XMLHttpRequest !== 'undefined') xhr = new XMLHttpRequest();
-        //    else {
-        //        var versions = ["MSXML2.XmlHttp.5.0",
-        //            "MSXML2.XmlHttp.4.0",
-        //            "MSXML2.XmlHttp.3.0",
-        //            "MSXML2.XmlHttp.2.0",
-        //            "Microsoft.XmlHttp"]
-        //
-        //        for(var i = 0, len = versions.length; i < len; i++) {
-        //            try {
-        //                xhr = new ActiveXObject(versions[i]);
-        //                break;
-        //            }
-        //            catch(e){}
-        //        } // end for
-        //    }
-        //
-        //    xhr.onreadystatechange = ensureReadiness;
-        //
-        //    function ensureReadiness() {
-        //        if(xhr.readyState < 4) {
-        //            return;
-        //        }
-        //
-        //        if(xhr.status !== 200) {
-        //            return;
-        //        }
-        //
-        //        // all is well
-        //        if(xhr.readyState === 4) {
-        //            callback(xhr);
-        //        }
-        //    }
-        //
-        //    xhr.open('GET', url, true);
-        //    xhr.send('');
-        //}
-        //
-        //loadXMLFile("/data/categories.xml", function(xhr) {
-        //    console.log("xhr ", xhr);
-        //})
+        function loadXMLFile(url, callback) {
+            var xhr;
+
+            if(typeof XMLHttpRequest !== 'undefined') xhr = new XMLHttpRequest();
+            else {
+                var versions = ["MSXML2.XmlHttp.5.0",
+                    "MSXML2.XmlHttp.4.0",
+                    "MSXML2.XmlHttp.3.0",
+                    "MSXML2.XmlHttp.2.0",
+                    "Microsoft.XmlHttp"]
+
+                for(var i = 0, len = versions.length; i < len; i++) {
+                    try {
+                        xhr = new ActiveXObject(versions[i]);
+                        break;
+                    }
+                    catch(e){}
+                } // end for
+            }
+
+            xhr.onreadystatechange = ensureReadiness;
+
+            function ensureReadiness() {
+                if(xhr.readyState < 4) {
+                    return;
+                }
+
+                if(xhr.status !== 200) {
+                    return;
+                }
+
+                // all is well
+                if(xhr.readyState === 4) {
+                    callback(xhr);
+                }
+            }
+
+            xhr.open('GET', url, true);
+            xhr.send('');
+        }
+
+        loadXMLFile("/data/categories.xml", function(xhr) {
+            console.log("PureJS AJAX result: ", xhr);
+        })
 
         /**
          * Category related codes
@@ -74,7 +74,6 @@ angular.module('app', ['ui.bootstrap', 'ui.tree'])
             }
         }).success(function (data) {
             $scope.categoryArray = data.CategoriesRoot.Categories;
-            console.log("AJEX call completed, categoryArray ", $scope.categoryArray);
         });
 
         $scope.selectCategory = function(category) {
@@ -113,7 +112,6 @@ angular.module('app', ['ui.bootstrap', 'ui.tree'])
             }
         }).success(function (data) {
             $scope.productArray = data.ProductsRoot.Products;
-            console.log("AJEX call completed, productArray ", $scope.productArray);
         });
 
         $scope.displayProductDetail = function(product) {
